@@ -40,3 +40,34 @@ form.addEventListener('submit', (e) => {
         alert('Name is required!');
     }
 });
+
+function navigateTo(event, url) {
+    event.preventDefault(); // Prevent default navigation
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const mainContent = doc.querySelector('main').innerHTML;
+
+            // Replace the main content with the new page's main content
+            document.querySelector('main').innerHTML = mainContent;
+
+            // Update the browser's history
+            window.history.pushState({}, '', url);
+        })
+        .catch(err => console.error('Failed to navigate:', err));
+}
+
+// Handle browser back/forward navigation
+window.addEventListener('popstate', () => {
+    const currentUrl = window.location.pathname;
+    fetch(currentUrl)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const mainContent = doc.querySelector('main').innerHTML;
+            document.querySelector('main').innerHTML = mainContent;
+        });
+});
