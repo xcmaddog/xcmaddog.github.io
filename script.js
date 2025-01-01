@@ -41,33 +41,17 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-function navigateTo(event, url) {
-    event.preventDefault(); // Prevent default navigation
-    fetch(url)
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('header.html')
         .then(response => response.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const mainContent = doc.querySelector('main').innerHTML;
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
 
-            // Replace the main content with the new page's main content
-            document.querySelector('main').innerHTML = mainContent;
-
-            // Update the browser's history
-            window.history.pushState({}, '', url);
-        })
-        .catch(err => console.error('Failed to navigate:', err));
-}
-
-// Handle browser back/forward navigation
-window.addEventListener('popstate', () => {
-    const currentUrl = window.location.pathname;
-    fetch(currentUrl)
+    fetch('footer.html')
         .then(response => response.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const mainContent = doc.querySelector('main').innerHTML;
-            document.querySelector('main').innerHTML = mainContent;
+        .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
         });
 });
+

@@ -1,19 +1,29 @@
-<link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
-
-
 <!DOCTYPE html>
 <html lang="en">
-    
-<script>
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML('afterbegin', data);
-        });
-</script>
-    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Madsen Evans</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
 <body>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            });
+    </script>
+
     <main>
         <h2>Welcome to my website!</h2>
         <p>You are probably here because you found it attached to my résumé or similar.
@@ -21,8 +31,8 @@
             I would rather you view it as a chance to research me before an interview. 
             I will return the favor by doing a thorough review of the values and goals of your company.</p>
     </main>
-    <footer>
-        <p>&copy; 2024 Madsen Evans</p>
-    </footer>
+
 </body>
+
 </html>
+

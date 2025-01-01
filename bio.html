@@ -1,21 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<script>
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML('afterbegin', data);
-        });
-</script>
-    
-<body>    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Madsen Evans</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            });
+    </script>
+
     <main>
-        <h2>About Me</h2>
-        <p>This is the bio page. Add your personal background information here.</p>
+        <section class="about-me">
+            <img src="MadsenSquarePortrait.jpeg" alt="Madsen Evans" class="profile-picture">
+            <ul class="about-list">
+                <li><strong>Full Name:</strong> Madsen Evans</li>
+                <li><strong>Born:</strong> May 2001</li>
+                <li><strong>Education:</strong> Mechanical Engineering at Brigham Young University</li>
+                <li><strong>Hobbies:</strong> Backpacking, Running, Reading, Rocketry, Rock Climbing, and more</li>
+                <li><strong>Favorite Quote:</strong> "Integrity is doing the right thing, even when no one is watching." - C.S. Lewis</li>
+            </ul>
+        </section>
+
+        <section class="Childhood">
+            <h2>My Childhood</h2>
+            <p>
+                I was born as the first child in my family, and shortly after my birth, my parents and I moved
+                to a small town in Northern Nevada, about an hour away from Reno. 
+
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+                blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+            </p>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Madsen Evans</p>
-    </footer>
+
 </body>
+
 </html>

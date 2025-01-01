@@ -2,17 +2,26 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    /*min-height: 100vh; /* Ensure full viewport height */
+    padding: 0; /* Remove default padding */
+    margin: 0;
+    line-height: 1.6;
 }
+
 h1 {
     color: #007acc;
 }
 
 main {
+    /*min-height: 100vh; /* Makes sure the main content takes at least full viewport height */
     margin: 20px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Allow content to expand and push the footer down */
 }
 
 @media (max-width: 600px) {
@@ -35,13 +44,6 @@ button {
 }
 button:hover {
     background-color: #005f99;
-}
-
-/* General reset */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
 }
 
 header {
@@ -85,13 +87,14 @@ nav ul li a:hover {
 /* Footer styling */
 footer {
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #333;
     color: white;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
 }
 
 header h1 a {
@@ -161,4 +164,39 @@ nav ul li a:hover {
 .dropdown-menu:hover {
     visibility: visible; /* Make visible */
     opacity: 1; /* Fully opaque */
+}
+
+/* About Me Section */
+.about-me {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* About List */
+.about-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    display: inline-block; /* Centers the list */
+}
+
+.about-list li {
+    margin-bottom: 0.5rem;
 }
