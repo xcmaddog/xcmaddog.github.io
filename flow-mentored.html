@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
+</script>
+    
+<body>    
+    <main>
+        <h2>FLight, Optimization, and Wind (FLOW) Laboratory</h2>
+        <p>This is the page where I can showcase my FLOW Lab Mentored Project.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Madsen Evans</p>
+    </footer>
+</body>
+</html>

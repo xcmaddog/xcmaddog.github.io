@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
+</script>
+    
+<body>    
+    <main>
+        <h2>Achievements</h2>
+        <p>This is the achievements page where I can show off various clubs and awards I have gained.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Madsen Evans</p>
+    </footer>
+</body>
+</html>

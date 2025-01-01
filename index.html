@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
+</script>
+    
+<body>
+    <main>
+        <h2>Welcome to my website!</h2>
+        <p>You are probably here because you found it attached to my résumé or similar.
+            Please don't think of this website as merely an interactive résumé. 
+            I would rather you view it as a chance to research me before an interview. 
+            I will return the favor by doing a thorough review of the values and goals of your company.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Madsen Evans</p>
+    </footer>
+</body>
+</html>
