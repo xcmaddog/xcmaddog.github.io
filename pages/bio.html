@@ -5,28 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Madsen Evans</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js"></script>
+    <link rel="icon" href="data:,">
 </head>
 
 <body>
-    <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('afterbegin', data);
-            });
-
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('beforeend', data);
-            });
-    </script>
 
     <main>
         <section class="about-me">
-            <img src="MadsenSquarePortrait.jpeg" alt="Madsen Evans" class="profile-picture">
+            <img src="../media/MadsenSquarePortrait.jpeg" alt="Madsen Evans" class="profile-picture">
             <ul class="about-list">
                 <li><strong>Full Name:</strong> Madsen Evans</li>
                 <li><strong>Born:</strong> May 2001</li>
