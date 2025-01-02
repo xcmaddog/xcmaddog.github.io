@@ -133,7 +133,7 @@ nav ul li a:hover {
     background-color: #007acc;
 }
 
-/* Dropdown menu with smooth fade-in/out */
+/* Dropdown Menu Styles */
 .dropdown-menu {
     display: block;
     visibility: hidden; /* Initially hidden */
@@ -141,7 +141,7 @@ nav ul li a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #333;
+    background-color: #333; /* Light mode background */
     padding: 10px 0;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -149,22 +149,83 @@ nav ul li a:hover {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.dropdown-menu li {
-    text-align: left;
-}
-
+/* Dropdown items */
 .dropdown-menu li a {
     display: block;
     padding: 5px 15px;
     color: white;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
 }
 
+/* On hover, change the background color */
+.dropdown-menu li a:hover {
+    background-color: #444;
+}
+
+/* Show the dropdown when hovering */
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover {
-    visibility: visible; /* Make visible */
-    opacity: 1; /* Fully opaque */
+    visibility: visible;
+    opacity: 1;
 }
+
+/* Dark Mode for the Body */
+body.dark-mode {
+    background-color: #333; /* Dark background for the whole page */
+    color: white; /* Light text color */
+}
+
+/* Dark Mode for Header */
+body.dark-mode header {
+    background-color: #222; /* Dark background for the header */
+}
+
+/* Dark Mode for Footer */
+body.dark-mode footer {
+    background-color: #222; /* Dark background for the footer */
+}
+
+/* Dark Mode for Main Content */
+body.dark-mode main {
+    background-color: #444; /* Slightly lighter background for main content */
+    color: white; /* Ensure text is visible */
+}
+
+/* Dark Mode for Dropdown Menu */
+body.dark-mode .dropdown-menu {
+    background-color: #444; /* Dark background for dropdown in dark mode */
+}
+
+/* Dark Mode for Links (text color) */
+body.dark-mode a {
+    color: #007acc; /* Light blue for links in dark mode */
+}
+
+/* Dark Mode for Buttons */
+body.dark-mode button {
+    background-color: #005f99; /* Darker button color */
+}
+
+/* Dark Mode for Dropdown items */
+body.dark-mode .dropdown-menu li a {
+    color: white; /* Ensure dropdown items have white text */
+}
+
+/* Dark Mode for About Me Section */
+body.dark-mode .about-me {
+    background-color: #555; /* Slightly darker background */
+    color: white; /* Light text */
+}
+
+/* Dark Mode Profile Picture */
+body.dark-mode .profile-picture {
+    border: 4px solid #555; /* Darker border for the profile picture */
+}
+
+
+
+
+
 
 /* About Me Section */
 .about-me {
@@ -200,3 +261,4 @@ nav ul li a:hover {
 .about-list li {
     margin-bottom: 0.5rem;
 }
+

@@ -7,12 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update aboutSection dynamically if it exists
-    //const aboutSection = document.querySelector('section');
-    //if (aboutSection) {
-    //    aboutSection.innerHTML = '<p>This is updated dynamically using JavaScript!</p>';
-    //}
-
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -28,19 +22,26 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleButton.textContent = 'Toggle Dark Mode';
     document.body.appendChild(toggleButton);
 
-    toggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    });
+    // Check localStorage for dark mode preference
+    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    }
 
-    // Add CSS for dark mode
-    const style = document.createElement('style');
-    style.textContent = `
-        .dark-mode {
-            background-color: #333;
-            color: white;
+    toggleButton.addEventListener('click', () => {
+        
+        //console.log("Button clicked!"); // Check if the button click is logged
+        
+        // Toggle dark mode on the body
+        document.body.classList.toggle('dark-mode');
+
+        // Save the current state to localStorage
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
         }
-    `;
-    document.head.appendChild(style);
+    });
 
     // Check if we are at the root and set basePath accordingly
     const isRoot = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
