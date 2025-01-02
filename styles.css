@@ -196,10 +196,6 @@ body.dark-mode .dropdown-menu {
     background-color: #444; /* Dark background for dropdown in dark mode */
 }
 
-/* Dark Mode for Links (text color) */
-body.dark-mode a {
-    color: #007acc; /* Light blue for links in dark mode */
-}
 
 /* Dark Mode for Buttons */
 body.dark-mode button {
