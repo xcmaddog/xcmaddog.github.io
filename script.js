@@ -29,9 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     toggleButton.addEventListener('click', () => {
-        
-        //console.log("Button clicked!"); // Check if the button click is logged
-        
         // Toggle dark mode on the body
         document.body.classList.toggle('dark-mode');
 
@@ -73,4 +70,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.insertAdjacentHTML('beforeend', data);
             });
     }
+
+    // Slideshow functionality
+    const slides = document.querySelectorAll('#eagle-scout .slideshow .slides .slide');
+    let currentIndex = 0;
+
+    // Helper function to reset classes
+    function resetSlides() {
+        slides.forEach(slide => {
+            slide.classList.remove('active', 'next', 'prev');
+        });
+    }
+
+    // Update slideshow to reflect currentIndex
+    function updateSlideshow() {
+        resetSlides();
+
+        // Set classes for the current, next, and previous slides
+        slides[currentIndex].classList.add('active');
+        slides[(currentIndex + 1) % slides.length].classList.add('next');
+        slides[(currentIndex - 1 + slides.length) % slides.length].classList.add('prev');
+    }
+
+    // Go to the next slide
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlideshow();
+    }
+
+    // Go to the previous slide
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlideshow();
+    }
+
+    // Add click listeners for manual navigation
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', () => {
+            if (slide.classList.contains('next')) {
+                nextSlide();
+            } else if (slide.classList.contains('prev')) {
+                prevSlide();
+            }
+        });
+    });
+
+    // Initialize the slideshow
+    updateSlideshow();
+
+    // Automatically cycle through slides every 3 seconds
+    setInterval(nextSlide, 3000);
 });

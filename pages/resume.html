@@ -11,12 +11,24 @@
 </head>
 
 <body>
-
     <main>
-        <h2>Résumé</h2>
-        <p>This is the résumé page.</p>
-    </main>
+        <!-- Résumé Section -->
+        <section id="resume">
+            <h1>Résumé</h1>
+            
+            <!-- Embed the PDF -->
+            <div class="resume-container">
+                <embed src="../media/resume.pdf" type="application/pdf" class="resume-pdf">
+            </div>
 
+            <!-- Resume Note -->
+            <div class="resume-note">
+                <p>
+                    This résumé was last updated on <span id="last-updated-date">[date]</span>. It is the generic version of my résumé and may differ from the version submitted to you.
+                </p>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
