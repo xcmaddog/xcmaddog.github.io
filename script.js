@@ -71,53 +71,62 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    // Slideshow functionality
-    const slides = document.querySelectorAll('#eagle-scout .slideshow .slides .slide');
-    let currentIndex = 0;
+// Slideshow functionality
+document.querySelectorAll('.slideshow').forEach(setupSlideshow);
 
-    // Helper function to reset classes
+function setupSlideshow(container) {
+    const slides = container.querySelectorAll('.slides .slide');
+    let currentIndex = 0;
+    let slideTimer = null;
+
+    slides.forEach((slide, index) => {
+        slide.dataset.index = index;
+    });
+
     function resetSlides() {
         slides.forEach(slide => {
             slide.classList.remove('active', 'next', 'prev');
         });
     }
 
-    // Update slideshow to reflect currentIndex
     function updateSlideshow() {
         resetSlides();
-
-        // Set classes for the current, next, and previous slides
         slides[currentIndex].classList.add('active');
         slides[(currentIndex + 1) % slides.length].classList.add('next');
         slides[(currentIndex - 1 + slides.length) % slides.length].classList.add('prev');
     }
 
-    // Go to the next slide
     function nextSlide() {
         currentIndex = (currentIndex + 1) % slides.length;
         updateSlideshow();
     }
 
-    // Go to the previous slide
     function prevSlide() {
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
         updateSlideshow();
     }
 
-    // Add click listeners for manual navigation
-    slides.forEach((slide, index) => {
+    function resetTimer() {
+        clearInterval(slideTimer);
+        slideTimer = setInterval(nextSlide, 3000);
+    }
+
+    // Event listeners
+    slides.forEach(slide => {
         slide.addEventListener('click', () => {
-            if (slide.classList.contains('next')) {
+            const clickedIndex = parseInt(slide.dataset.index);
+            if (clickedIndex === (currentIndex + 1) % slides.length) {
                 nextSlide();
-            } else if (slide.classList.contains('prev')) {
+            } else if (clickedIndex === (currentIndex - 1 + slides.length) % slides.length) {
                 prevSlide();
             }
+            resetTimer();
         });
-    });
+    });    
 
-    // Initialize the slideshow
+    // Initialize
     updateSlideshow();
+    resetTimer();
+}
 
-    // Automatically cycle through slides every 3 seconds
-    setInterval(nextSlide, 3000);
 });

@@ -282,27 +282,29 @@ body.dark-mode .profile-picture {
     opacity: 0; /* Default hidden */
     z-index: 0;
     cursor: pointer;
+    pointer-events: none; /* disable clicks by default */
 }
 
 .slide.active {
     opacity: 1;
-    transform: scale(1);
+    transform: translateX(0) scale(1);
     z-index: 2;
+    pointer-events: none; /* center slide shouldn't block others */
 }
 
 .slide.next,
 .slide.prev {
     opacity: 0.6;
-    transform: scale(0.8);
     z-index: 1;
+    pointer-events: auto; /* only clickable when "next" or "prev" */
 }
 
 .slide.next {
-    right: -100px; /* Adjust spacing for next slide visibility */
+    transform: translateX(150px) scale(0.8);
 }
 
 .slide.prev {
-    left: -100px; /* Adjust spacing for previous slide visibility */
+    transform: translateX(-150px) scale(0.8);
 }
 
 /* Center images within their sections */
@@ -353,4 +355,14 @@ body.dark-mode .profile-picture {
     color: #555;
     line-height: 1.6;
     max-width: 80%; /* Limits the note width for better readability */
+}
+
+@media (max-width: 600px) {
+    .slide.next {
+        transform: translateX(80px) scale(0.8);
+    }
+
+    .slide.prev {
+        transform: translateX(-80px) scale(0.8);
+    }
 }
