@@ -13,8 +13,34 @@
 <body>
 
     <main>
-        <h2>FLight, Optimization, and Wind (FLOW) Laboratory</h2>
-        <p>This is the page where I can showcase my FLOW Lab Mentored Project.</p>
+        <h2>Flight, Learning, Optimization, and Wind (FLOW) Laboratory Mentored Projects</h2>
+        <p>This page does not cover the paid work I did in the FLOW lab, but instead breifly covers the mentored projects I did under the FLOW Lab prior to becoming a research assistant.</p>
+        <section>
+            <h3>Airfoils with XFOIL</h3>
+            <p>
+                The first project I did under the FLOW lab was designed to help familiarize myself with airfoils as well as one way to predict their performmance.
+                I used XFOIL to analyze a handful of airfoils at various Reynolds numbers and angles of attack.
+                I then compared the XFOIL results from one airfoil to wind tunnel data available online to see how accurate XFOIL's predictions were.
+            </p>
+        </section>
+        <section>
+            <h3>Airframe Analysis</h3>
+            <p>
+                The second project I did under the FLOW lab was to analyze an airframe (wing and tails). 
+                I used VortexLattice.jl, a Julia package developed by the FLOW lab to analyze the lifting surfaces using a vortex splines.
+                I observed the effect of the number of panels used to model an eliptical wing.
+                I also observed the effect of tail volume ratios on the stability derivatives of the aircraft.
+            </p>
+        </section>
+        <section>
+            <h3>Airframe Design</h3>
+            <p>
+                The third project I did under the Flow lab was to design a wing using computer optimization.
+                Most of the parameters of the wing were fixed, but the optimizer had control over the chord lengths of each panel.
+                The objective was to minimize drag while achieving a certain amount of lift at a given speed and altitude.
+                The result (which was expected) was a wing with an elliptical planform. (Because the airfoil and twist were constant.)
+            </p>
+        </section>
     </main>
 
 </body>
